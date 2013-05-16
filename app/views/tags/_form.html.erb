@@ -1,0 +1,11 @@
+<%= form.fields_for :tags do |tag_form| %>
+<%= tag_form.label :name, "Tags: "%>
+<%= tag_form.text_field :name %>
+	
+<!-- These lines for the edit only not for the new post	 -->
+	<% unless tag_form.object.nil? || tag_form.object.new_record? %>
+		<%= tag_form.label :_destroy, 'Remove:' %> 
+		<%= tag_form.check_box :_destroy %>	
+	<% end%>
+<br />
+<% end %>

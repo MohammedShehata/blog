@@ -1,0 +1,34 @@
+<% @post.tags.build %>
+
+<% if @post.errors.any? %>
+<ul>
+	<% @post.errors.full_messages.each do |msg| %>
+	<li><%= msg %></li>
+	<% end %>
+</ul>
+
+<% end %>
+<%= form_for @post do |post_form| %>
+<table>
+	<tr>
+		<td>Name: </td>
+		<td><%= post_form.text_field :name %></td>
+	</tr>
+	<tr>
+		<td>Title: </td>
+		<td><%= post_form.text_field :title %></td>
+	</tr>
+	<tr>
+		<td style="vertical-align: top">Content: </td>
+		<td><%= post_form.text_area :content %></td>
+	</tr>
+	<tr>
+		<td>For Tags</td>
+		<td><%= render :partial => "tags/form", :locals => {:form => post_form} %></td>
+	</tr>
+	<tr>
+		<td><%= post_form.submit :class => "btn" %></td>
+	</tr>
+</table>
+
+<% end %>

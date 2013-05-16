@@ -1,0 +1,5 @@
+<li><%= comment.commenter %> 
+	<span style="color:#FF0000"> said:</span> 
+	<%= comment.body %>
+	<%= link_to "Delete", [comment.post, comment], :method => :delete %>
+</li>
